@@ -5,7 +5,7 @@ class FlightsController < ApplicationController
 	end
 	
 	def create
-		@flight = Flight.new(flightt_params)
+		@flight = Flight.new(flight_params)
 	end
 	private
 		def flight_params
