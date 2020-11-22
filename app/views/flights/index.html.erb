@@ -13,13 +13,14 @@
 </select>
 
 <select id="p-choice">
-  <option selected value="passengers">(Pessengers)</option>
+  <option selected value="passengers">(Passengers)</option>
   <option value="1p">1</option>
   <option value="2p">2</option>
   <option value="3p">3</option>
   <option value="4p">4</option>
 </select>
-<p><br>Departure Date</p>
+&nbsp&nbsp
+<!--<p><br>Departure Date</p>-->
 
 <select id="yy-choice">
   <option selected value="yy">(year)</option>
@@ -53,17 +54,20 @@
 
   <% end %>
 </table>
-
+<p></p>
 <table>
   <tr>
     <th>Flight</th>
     <th></th>
   </tr>
   <tr></tr>
- 
+  <% @airports%>
   <% @flights.each do |flight| %>
     <tr>
-      <td><%= flight.duration %></td>
+      <td><%= flight.dep_airport.code %></td>
+      <td><%= flight.arr_airport.code %>&nbsp</td>
+      <td>&nbsp&nbsp&nbsp<%= flight.dep_time %>&nbsp&nbsp</td>
+      <td><%= flight.duration %> hours</td>
     </tr>
 
   <% end %>
