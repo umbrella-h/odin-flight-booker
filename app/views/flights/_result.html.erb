@@ -7,7 +7,10 @@
   <% @airports%>
   <% @flights.each do |flight| %>
     <tr>
-      <td><%= flight.dep_airport.code %></td>
+      <td><%= check_box_tag(:result_here) %>
+      	<%= label_tag(:result_here, "Label Here!") %>&nbsp
+      </td>
+		<td><%= flight.dep_airport.code %>&nbsp</td>
       <td><%= flight.arr_airport.code %>&nbsp</td>
       <td>&nbsp&nbsp&nbsp<%= flight.dep_time %>&nbsp&nbsp</td>
       <td><%= flight.duration %> hours</td>
