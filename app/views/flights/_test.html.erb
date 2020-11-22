@@ -1,0 +1,33 @@
+<p><br>(test)</p>
+<table>
+  <tr>
+    <th>Airport</th>
+    <th></th>
+  </tr>
+  <tr></tr>
+ 
+  <% @airports.each do |airport| %>
+    <tr>
+      <td><%= airport.code %></td>
+    </tr>
+
+  <% end %>
+</table>
+<p></p>
+<table>
+  <tr>
+    <th>Flight</th>
+    <th></th>
+  </tr>
+  <tr></tr>
+  <% @airports%>
+  <% @flights.each do |flight| %>
+    <tr>
+      <td><%= flight.dep_airport.code %></td>
+      <td><%= flight.arr_airport.code %>&nbsp</td>
+      <td>&nbsp&nbsp&nbsp<%= flight.dep_time %>&nbsp&nbsp</td>
+      <td><%= flight.duration %> hours</td>
+    </tr>
+
+  <% end %>
+</table>

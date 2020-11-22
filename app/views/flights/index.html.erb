@@ -1,74 +1,8 @@
 <h1>Search for Flights</h1>
 
-<select id="from-choice">
-  <option selected value="from">(From)</option>
-  <option value="sfo">SFO</option>
-  <option value="nyc">NYC</option>
-</select>
+<%= render 'form' %>
 
-<select id="to-choice">
-  <option selected value="to">(To)</option>
-  <option value="sfo">SFO</option>
-  <option value="nyc">NYC</option>
-</select>
+<%#= render 'test' %>
 
-<select id="p-choice">
-  <option selected value="passengers">(Passengers)</option>
-  <option value="1p">1</option>
-  <option value="2p">2</option>
-  <option value="3p">3</option>
-  <option value="4p">4</option>
-</select>
-&nbsp&nbsp
-<!--<p><br>Departure Date</p>-->
+<%= render 'result' %>
 
-<select id="yy-choice">
-  <option selected value="yy">(year)</option>
-  <option value="yy2020">2020</option>
-</select>
-
-<select id="mm-choice">
-  <option selected value="mm">(month)</option>
-  <option value="mm12">12</option>
-</select>
-
-<select id="dd-choice">
-  <option selected value="dd">(day)</option>
-  <option value="dd01">01</option>
-  <option value="dd02">02</option>
-</select>
-
-
-<p><br>(test)</p>
-<table>
-  <tr>
-    <th>Airport</th>
-    <th></th>
-  </tr>
-  <tr></tr>
- 
-  <% @airports.each do |airport| %>
-    <tr>
-      <td><%= airport.code %></td>
-    </tr>
-
-  <% end %>
-</table>
-<p></p>
-<table>
-  <tr>
-    <th>Flight</th>
-    <th></th>
-  </tr>
-  <tr></tr>
-  <% @airports%>
-  <% @flights.each do |flight| %>
-    <tr>
-      <td><%= flight.dep_airport.code %></td>
-      <td><%= flight.arr_airport.code %>&nbsp</td>
-      <td>&nbsp&nbsp&nbsp<%= flight.dep_time %>&nbsp&nbsp</td>
-      <td><%= flight.duration %> hours</td>
-    </tr>
-
-  <% end %>
-</table>
