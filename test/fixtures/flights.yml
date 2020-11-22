@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  dep_airport: one
-  arr_airport: one
-  dep_time: 2020-11-20 09:38:44
+  dep_airport_id: 1
+  arr_airport_id: 1
+  dep_time: 2020-11-22 14:09:13
   duration: 1
 
 two:
-  dep_airport: two
-  arr_airport: two
-  dep_time: 2020-11-20 09:38:44
+  dep_airport_id: 1
+  arr_airport_id: 1
+  dep_time: 2020-11-22 14:09:13
   duration: 1

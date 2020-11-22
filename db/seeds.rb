@@ -7,8 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 	airports = Airport.create([{ code: 'SFO' }, { code: 'NYC' }])
-	flights = Flight.create([{ dep_time: (DateTime.civil_from_format :local, 2020, 12, 1), duration: 6 },
-	 {dep_time: (DateTime.civil_from_format :local, 2020, 12, 2), duration: 8 }])
+	flights = Flight.create([{dep_airport_id :airports.first.id, arr_airport_id :airports.last.id, dep_time: "2020-12-01 08:00:00", duration: 6}, {dep_airport_id :airports.last.id, arr_airport_id :airports.first.id, dep_time: "2020-12-02 13:00:00", duration: 8}])
 
 #DateTime.civil_from_format :local, 2020, 12, 1
 
