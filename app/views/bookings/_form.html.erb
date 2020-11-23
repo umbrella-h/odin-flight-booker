@@ -1,0 +1,13 @@
+<%= form_with(model: [ @passenger, @passenger.bookings.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_area :email %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

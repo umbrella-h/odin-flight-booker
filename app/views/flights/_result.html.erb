@@ -1,20 +1,28 @@
-<table>
-  <tr>
-    <th>Flight</th>
-    <th></th>
-  </tr>
-  <tr></tr>
-  <% @airports%>
-  <% @flights.each do |flight| %>
-    <tr>
-      <td><%= check_box_tag(:result_here) %>
-      	<%= label_tag(:result_here, "Label Here!") %>&nbsp
-      </td>
-		<td><%= flight.dep_airport.code %>&nbsp</td>
-      <td><%= flight.arr_airport.code %>&nbsp</td>
-      <td>&nbsp&nbsp&nbsp<%= flight.dep_time %>&nbsp&nbsp</td>
-      <td><%= flight.duration %> hours</td>
-    </tr>
 
-  <% end %>
-</table>
+	<%#= radio_button_tag(:flight, @flight.id, { checked: true }) %>
+	radio_button here!
+	
+&nbsp&nbsp&nbsp
+
+
+<div style="display: inline-block">
+	<table>
+  		<tr>
+   	 <th>Flight</th>
+   	 <th></th>
+  		</tr>
+  		<tr></tr>
+  			<% @flights.each do |flight| %>
+    	<tr>
+      	<!--<td><%= check_box_tag(:result_here) %>
+      		<%= label_tag(:result_here, "Label Here!") %>&nbsp
+      	</td>-->
+			<td><%= flight.dep_airport.code %>&nbsp</td>
+	      <td><%= flight.arr_airport.code %>&nbsp</td>
+	      <td>&nbsp&nbsp&nbsp<%= flight.dep_time %>&nbsp&nbsp</td>
+	      <td><%= flight.duration %> hours</td>
+	    </tr>
+
+	  <% end %>
+	</table>
+</div>
