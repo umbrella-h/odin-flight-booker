@@ -1,6 +1,8 @@
-<%= form_with(url: "/flights", method: "get", local: true) do %>
-	<%#= radio_button_tag(:flight, @flight.id, { checked: true }) %>
-	radio_button here!
+<%= form_with(url: "/bookings/new", method: "get", local: true) do %>
+
+	<% @result_flights.each do |flight| %>
+	<%= radio_button_tag(:selected_flight, flight.id, { checked: true }) %>
+	<%end%>
 	
 &nbsp&nbsp&nbsp
 
@@ -8,16 +10,17 @@
 <div style="display: inline-block">
 	<table>
   		<tr>
-   	 <th>Flight</th>
+   	 <th>Flight Options<br><br></th>
    	 <th></th>
   		</tr>
   		<tr></tr>
-  			<% @flights.each do |flight| %>
+  			<% @result_flights.each do |flight| %>
     	<tr>
       	<!--<td><%= check_box_tag(:result_here) %>
       		<%= label_tag(:result_here, "Label Here!") %>&nbsp
       	</td>-->
-			<td><%= flight.dep_airport.code %>&nbsp</td>
+      	
+			<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= flight.dep_airport.code %>&nbsp----></td>
 	      <td><%= flight.arr_airport.code %>&nbsp</td>
 	      <td>&nbsp&nbsp&nbsp<%= flight.dep_time %>&nbsp&nbsp</td>
 	      <td><%= flight.duration %> hours</td>

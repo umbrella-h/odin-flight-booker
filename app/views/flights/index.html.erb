@@ -2,7 +2,16 @@
 
 <%= render 'form' %>
 
-<%= render 'test' %>
+<br><br>
 
-<%= render 'result' %>
+<%#= render 'test' %>
+
+<% if @result_flights.any? %>
+   <div>
+       <%= render 'result' %>
+   </div>
+<% else %>
+   <p>There are no suitable flights.</p>
+<% end %>
+
 
