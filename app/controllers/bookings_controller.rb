@@ -8,9 +8,10 @@ class BookingsController < ApplicationController
   end
   
   def create
-    @passenger = Passenger.find(params[:passenger_id])
-    @booking = @passenger.bookings.create(booking_params)
-    redirect_to booking_path(@booking)
+  	@booking = Bookings.new(booking_params)
+    #@passenger = Passenger.find(params[:passenger_id])
+    #@booking = @passenger.bookings.build(booking_params)
+    #redirect_to booking_path(@booking)
   end
   private
     def booking_params

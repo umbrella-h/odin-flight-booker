@@ -1,4 +1,4 @@
-<%= form_with(url: "/bookings/new", method: "get", local: true) do %>
+<%= form_with(url: "/passengers/new", method: "get", local: true) do %>
 <div>
 	<% @result_flights.each do |flight| %>
 	<%= radio_button_tag(:selected_flight, flight.id, { checked: true }) %>
@@ -33,7 +33,7 @@
 
 
 <div style="display: inline-block">
-	&nbsp&nbsp<%= submit_tag("Book the flight") %>
+	&nbsp&nbsp<%= submit_tag("Go Booking the flight") %>
 </div>
 
 <% end %>

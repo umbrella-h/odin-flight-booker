@@ -1,0 +1,23 @@
+<%#= form_with(model: [ @passenger, @passenger.bookings.build ], local: true) do |form| %>
+
+<%= form_with(url: "/passengers/new", method: "get", local: true) do |form|%>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_area :email %>
+  <p>
+    <%#= submit_tag("Check Your ID Information") %>
+  </p>
+  </p>
+  <p>
+    <%= form.label :'number of passengers' %><br>
+    <%= form.text_area :passenger_n %>
+  </p>
+  <p>
+    <%= submit_tag("Book the flight") %>
+  </p>
+<% end %>
