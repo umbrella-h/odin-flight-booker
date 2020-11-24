@@ -2,7 +2,8 @@ class PassengersController < ApplicationController
 
 
    def new
-   	@passenger = Passenger.new
+	   params = { user_passenger: { name: params[:name], email: params[:email], booking_attributes: { flight_id: params[:flights_id], passenger_n: params[passenger_n] }}}
+   	@user_passenger = Passenger.new(params[:user_passenger])
    end
 	
 	def show
