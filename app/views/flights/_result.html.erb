@@ -1,9 +1,10 @@
 <%= form_with(url: "/bookings/new", method: "get", local: true) do %>
-
+<div>
 	<% @result_flights.each do |flight| %>
 	<%= radio_button_tag(:selected_flight, flight.id, { checked: true }) %>
 	<%end%>
-	
+</div>
+<br>	
 &nbsp&nbsp&nbsp
 
 
