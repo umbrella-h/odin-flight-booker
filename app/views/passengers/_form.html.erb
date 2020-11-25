@@ -16,7 +16,7 @@
   <p>
     <%= form.label :'number of passengers (Up to 20)' %><br>
     <%= form.text_area :passenger_n %>
-    <%= hidden_field_tag 'selected_flight', :selected_flight%>
+    <%= hidden_field_tag 'selected_flight', params[:selected_flight]%>
   </p>
   <p>
     <%= submit_tag("Book the flight") %>
