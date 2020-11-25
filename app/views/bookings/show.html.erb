@@ -8,14 +8,13 @@
     <th></th>
   </tr>
   <tr></tr>
-  <% @airports%>
-  <% @flights.each do |flight| %>
+  <% #@flights.each do |flight| %>
     <tr>
-      <td><%= flight.dep_airport.code %></td>
-      <td><%= flight.arr_airport.code %>&nbsp</td>
-      <td>&nbsp&nbsp&nbsp<%= flight.dep_time.day %>&nbsp&nbsp</td>
-      <td><%= flight.duration %> hours</td>
+      <td><%#= flight.dep_airport.code %></td>
+      <td><%#= flight.arr_airport.code %>&nbsp</td>
+      <td>&nbsp&nbsp&nbsp<%#= flight.dep_time.day %>&nbsp&nbsp</td>
+      <td><%#= flight.duration %> hours</td>
     </tr>
 
-  <% end %>
+  <%# end %>
 </table>
