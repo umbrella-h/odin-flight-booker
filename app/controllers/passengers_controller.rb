@@ -2,8 +2,10 @@ class PassengersController < ApplicationController
 
 
    def new
-	   params = { user_passenger: { name: params[:name], email: params[:email], booking_attributes: { flight_id: params[:flights_id], passenger_n: params[passenger_n] }}}
-   	@user_passenger = Passenger.new(params[:user_passenger])
+	   #params = { user_passenger: { name: params[:name], email: params[:email]}}#, booking_attributes: { flight_id: params[:selected_flight], passenger_n: params[passenger_n] }}}
+   	@user_passenger = Passenger.create(name: params[:name], email: params[:email])#params[:user_passenger])
+   	
+
    end
 	
 	def show
@@ -17,7 +19,8 @@ class PassengersController < ApplicationController
   		if @passenger.save
 	     redirect_to @passenger#-----------------remember to change to show
   		else
-    	  render 'new'
+    	  #render 'new'
+    	  redirect_to @passenger
   		end
 	end
 	
