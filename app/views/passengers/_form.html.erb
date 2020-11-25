@@ -8,14 +8,14 @@
   </p>
   <p>
     <%= form.label :email %><br>
-    <%= form.text_area :email %>
+    <%= form.email_field :email, required: true %>
   <p>
     <%#= submit_tag("Check Your ID Information") %>
   </p>
   </p>
   <p>
     <%= form.label :'number of passengers (Up to 20)' %><br>
-    <%= form.text_area :passenger_n %>
+    <%= form.number_field :passenger_n, in: 1...21 %>
     <%= hidden_field_tag 'selected_flight', params[:selected_flight]%>
   </p>
   <p>
