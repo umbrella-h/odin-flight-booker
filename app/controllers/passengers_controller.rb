@@ -3,16 +3,17 @@ class PassengersController < ApplicationController
 
    def new
    	@selected_flight_id = params[:selected_flight].to_i
-   	@current_flight = Flight.where(id: @selected_flight_id)
+   	@current_flight = Flight.find(@selected_flight_id)
+   	@passenger_n = params[:passenger_n].to_i
    	console
-	   params_nested = { user_passenger: { name: params[:name], email: params[:email], bookings_attributes: [{ flight_id: @selected_flight_id, passenger_n: params[:passenger_n] }]}}
+	   params_nested = { user_passenger: { name: params[:name], email: params[:email], bookings_attributes: [{ flight_id: @selected_flight_id, passenger_n: @passenger_n}]}}
 	   unless params[:name].blank? || params[:email].blank? || params[:passenger_n].blank?
+	   	
    		@user_passenger = Passenger.create!(params_nested[:user_passenger]) 
    		if @user_passenger.save
-	     		redirect_to passenger_path(@user_passenger.id)#-----------------remember to change to show
+	     		redirect_to passenger_path(@user_passenger.id)
   			else
-    	  		#render 'new'
-    	  		redirect_to passenger_path(@user_passenger.id)
+    	  		render 'new'
   			end   	  		
    	end
    	
@@ -42,9 +43,9 @@ class PassengersController < ApplicationController
 
 	end
 	
-	#useless??
+	
 	private
 		def passenger_params
-			params.require(:passenger).permit(:name, :email)
+			params.require(:passenger).permit(:name, :email, bookings_attributes: [[ :flight_id, :passenger_n]])
 		end	
 end

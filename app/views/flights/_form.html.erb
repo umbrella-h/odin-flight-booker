@@ -1,4 +1,4 @@
-<%= form_with(url: "/flights", method: "get", local: true) do %>
+<%= form_with(url: "/flights", method: "get", local: true) do |form|%>
   <% @airport_options = Airport.all.map { |airport| [airport.code, airport.id] } %>
   <% @yr_options = Flight.all.map { |flight| flight.dep_time.year }.uniq %>
   <% @mon_options = Flight.all.map { |flight| flight.dep_time.month }.uniq %>
@@ -10,15 +10,18 @@
 
 &nbsp
 
-<%#= select_tag(:passenger_n, options_for_select(1..4, selected: params[:passenger_n]), { prompt: '(Passengers)' }) %>
-
-&nbsp&nbsp&nbsp
 
 <%= select_tag(:dep_time_yr, options_for_select(@yr_options, selected: params[:dep_time_yr]), { prompt: '(year)' }) %>
 
 <%= select_tag(:dep_time_mon, options_for_select(@mon_options, selected: params[:dep_time_mon]), { prompt: '(month)' }) %>
 
-<%= select_tag(:dep_time_day, options_for_select(@day_options, selected: params[:dep_time_day]), { prompt: '(day)' }) %>
+<%= select_tag(:dep_time_day, options_for_select(@day_options, selected: params[:dep_time_day]), { prompt: '(day)' }) %><br><br>
+
+
+<%= form.label :'number of passengers (Up to 20)' %>
+<%= form.number_field :passenger_n, in: 1...21 %>
+
+&nbsp&nbsp&nbsp
 
 &nbsp&nbsp&nbsp&nbsp&nbsp
 

@@ -3,17 +3,23 @@
   		<tr>
    	 <th>Flight<br><br></th>
    	 <th></th>
+   	 <th></th>
+   	 <th></th>
+   	 <th></th>
+   	 <th>&nbsp&nbsp&nbspNumber of Passengers&nbsp&nbsp&nbsp</th>
+
   		</tr>
   		<tr></tr>
-  			<% @current_flight.each do |cf| %>
+  			<% cf = @current_flight%>
     	<tr>      	
 			<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= cf.dep_airport.code %>&nbsp----></td>
 	      <td><%= cf.arr_airport.code %>&nbsp</td>
 	      <td>&nbsp&nbsp&nbsp<%= cf.dep_time %>&nbsp&nbsp</td>
 	      <td><%= cf.duration %> hours&nbsp&nbsp</td>
 	      <td><%= cf.avail %> seats</td>
+	      <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= @passenger_n %></td>
 	    </tr>
 
-	  		<% end %>
+	 
 	</table>
 </div>
