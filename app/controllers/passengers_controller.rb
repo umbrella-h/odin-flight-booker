@@ -2,23 +2,11 @@ class PassengersController < ApplicationController
 
 
    def new
+   	@passenger = Passenger.new
    	@selected_flight_id = params[:selected_flight].to_i
+   	@passenger_n = params[:passenger_n]
    	@current_flight = Flight.where(id: @selected_flight_id)
    	console
-	   params_nested = { user_passenger: { name: params[:name], email: params[:email], bookings_attributes: [{ flight_id: @selected_flight_id, passenger_n: params[:passenger_n] }]}}
-	   unless params[:name].blank? || params[:email].blank? || params[:passenger_n].blank?
-   		@user_passenger = Passenger.create!(params_nested[:user_passenger]) 
-   		if @user_passenger.save
-	     		redirect_to passenger_path(@user_passenger.id)#-----------------remember to change to show
-  			else
-    	  		#render 'new'
-    	  		redirect_to passenger_path(@user_passenger.id)
-  			end   	  		
-   	end
-   	
-
-
-
    end
 	
 	def show
@@ -30,21 +18,18 @@ class PassengersController < ApplicationController
 	def create
 		@passenger = Passenger.new(passenger_params)
 		
-		
-		#if @passenger.save
-	   #  redirect_to passenger_path(@passenger.id)#-----------------remember to change to show
-  		#else
-    	  #render 'new'
-    	#  redirect_to passenger_path(@passenger.id)
-  		#end
-
-
+=begin		
+		if @passenger.save
+	     redirect_to @passenger
+  		else
+    	  render 'new'
+  		end
+=end
 
 	end
 	
-	#useless??
 	private
 		def passenger_params
-			params.require(:passenger).permit(:name, :email)
+			params.require(:passenger).permit(:name, :email, bookings_attributes: [[ :flight_id, :passenger_n]])
 		end	
 end

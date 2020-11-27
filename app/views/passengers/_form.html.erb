@@ -1,6 +1,6 @@
-<%#= form_with(model: [ @passenger, @passenger.bookings.build ], local: true) do |form| %>
+<%= form_with(model: @passenger, local: true) do |form| %>
 
-<%= form_with(url: "/passengers/new", method: "get", local: true) do |form|%>
+<%#= form_with(url: "/passengers/new", method: "get", local: true) do |form|%>
 
   <p>
     <%= form.label :name %><br>
@@ -9,14 +9,13 @@
   <p>
     <%= form.label :email %><br>
     <%= form.email_field :email, required: true %>
-  <p>
-    <%#= submit_tag("Check Your ID Information") %><!--not sure if this is necessary-->
-  </p>
   </p>
   <p>
     <%= form.label :'number of passengers (Up to 20)' %><br>
     <%= form.number_field :passenger_n, in: 1...21 %>
-    <%= hidden_field_tag 'selected_flight', params[:selected_flight]%>
+    <%#= hidden_field_tag 'flight_id', @selected_flight_id%>
+    <%= form.label :'number of passengers (Up to 20)' %><br>
+    <%= hidden_field_tag 'bookings_attributes', [{ flight_id: @selected_flight_id, passenger_n: @passenger_n}]%>
   </p>
   <p>
     <%= submit_tag("Book the flight") %>
