@@ -5,7 +5,7 @@ class PassengersController < ApplicationController
    	@selected_flight_id = params[:selected_flight].to_i
    	@current_flight = Flight.where(id: @selected_flight_id)
    	console
-	   params_nested = { user_passenger: { name: params[:name], email: params[:email]}, bookings_attributes: [{ flight_id: @selected_flight_id, passenger_n: params[:passenger_n] }]}
+	   params_nested = { user_passenger: { name: params[:name], email: params[:email], bookings_attributes: [{ flight_id: @selected_flight_id, passenger_n: params[:passenger_n] }]}}
 	   unless params[:name].blank? || params[:email].blank? || params[:passenger_n].blank?
    		@user_passenger = Passenger.create!(params_nested[:user_passenger])
    		
