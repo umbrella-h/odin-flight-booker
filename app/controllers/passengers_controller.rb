@@ -16,10 +16,6 @@ class PassengersController < ApplicationController
     	  		render 'new'
   			end   	  		
    	end
-   	
-
-
-
    end
 	
 	def show
@@ -33,19 +29,26 @@ class PassengersController < ApplicationController
 		
 		
 		#if @passenger.save
-	   #  redirect_to passenger_path(@passenger.id)#-----------------remember to change to show
+	   #  redirect_to passenger_path(@passenger.id)
   		#else
     	  #render 'new'
     	#  redirect_to passenger_path(@passenger.id)
   		#end
-
-
-
+	end
+	
+	def update
+		@passenger = Passenger.find(params[:id])
+		if 
+		end
+		
+		#flash.now[:alert] = ""	
+	
 	end
 	
 	
 	private
 		def passenger_params
-			params.require(:passenger).permit(:name, :email, bookings_attributes: [[ :flight_id, :passenger_n]])
+			params.require(:passenger).permit(:name, :email,
+			 bookings_attributes: [[ :flight_id, :passenger_n]])
 		end	
 end

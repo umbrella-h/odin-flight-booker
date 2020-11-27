@@ -9,7 +9,7 @@ class FlightsController < ApplicationController
 				@passenger_n = params[:passenger_n]
 				@selected_date = DateTime.civil(params[:dep_time_yr].to_i, params[:dep_time_mon].to_i, params[:dep_time_day].to_i)
 				@pre_flights = Flight.where(dep_airport_id: params[:dep_airport_id], arr_airport_id: params[:arr_airport_id])
-				@result_flights = @pre_flights.where(dep_time: 	@selected_date.all_day).where("(avail - ?) >= 0", @passenger_n)
+				@result_flights = @pre_flights.where(dep_time: 	@selected_date.all_day).where("(avail - ?) >= 0", @passenger_n).order('dep_time')
 				#('dep_time < ? AND dep_time >= ?', @selected_date.beginning_of_day, @selected_date.beginning_of_day,)
 
 			end
