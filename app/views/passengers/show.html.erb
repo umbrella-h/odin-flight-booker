@@ -6,16 +6,13 @@
     <th>Email&nbsp&nbsp&nbsp</th>
     <th>Number of Passengers&nbsp&nbsp&nbsp</th>
   </tr>
-  <tr></tr>
-
-  <% #@flights.each do |flight| %>
-    <tr>
-      <td>&nbsp&nbsp&nbsp<%#= flight.dep_airport.code %>--------</td>
-      <td>&nbsp&nbsp&nbsp<%#= flight.arr_airport.code %>---------------------------&nbsp&nbsp&nbsp&nbsp</td>
-      <td>&nbsp&nbsp&nbsp<%#= flight.dep_time.day %>---&nbsp&nbsp</td>
-    </tr>
-
-  <%# end %>
+  <% p = @passenger%>
+  <% p.bookings.each do |b| %>
+  <tr>
+      <td><br><%= p.name %></td>
+      <td><br>&nbsp&nbsp&nbsp<%= p.email %>&nbsp&nbsp&nbsp&nbsp</td>
+      <td><br>&nbsp&nbsp&nbsp<%= b.passenger_n %>&nbsp&nbsp</td>
+  </tr>    
 </table>
 
 <br><br>
@@ -27,14 +24,14 @@
    	 <th></th>
   		</tr>
   		<tr></tr>
-  			<%# @result_flights.each do |flight| %>
+  			<% f = b.flight%>
     	<tr>     	
-			<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%#= flight.dep_airport.code %>&nbsp----></td>
-	      <td><%#= flight.arr_airport.code %>&nbsp</td>
-	      <td>&nbsp&nbsp&nbsp<%#= flight.dep_time %>&nbsp&nbsp</td>
-	      <td><%#= flight.duration %> hours</td>
+			<td>&nbsp&nbsp&nbsp&nbsp<%= f.dep_airport.code %>&nbsp----></td>
+	      <td><%= f.arr_airport.code %>&nbsp</td>
+	      <td>&nbsp&nbsp&nbsp<%= f.dep_time %>&nbsp&nbsp</td>
+	      <td><%= f.duration %> hours</td>
 	    </tr>
-
-	  <%# end %>
+		
+	<% end %>
 	</table>
 </div>
