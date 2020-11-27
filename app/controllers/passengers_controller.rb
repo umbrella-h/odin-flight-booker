@@ -38,8 +38,8 @@ class PassengersController < ApplicationController
 	
 	def update
 		@passenger = Passenger.find(params[:id])
-		if 
-		end
+		#if 
+		#end
 		
 		#flash.now[:alert] = ""	
 	
