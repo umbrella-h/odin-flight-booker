@@ -4,8 +4,8 @@ class PassengersController < ApplicationController
    def new
    	@passenger = Passenger.new
    	@selected_flight_id = params[:selected_flight].to_i
-   	@passenger_n = params[:passenger_n]
-   	@current_flight = Flight.where(id: @selected_flight_id)
+   	@passenger_n = params[:passenger_n].to_i
+   	@current_flight = Flight.find(@selected_flight_id)
    	console
    end
 	

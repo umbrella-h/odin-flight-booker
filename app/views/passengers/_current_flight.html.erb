@@ -5,7 +5,7 @@
    	 <th></th>
   		</tr>
   		<tr></tr>
-  			<% @current_flight.each do |cf| %>
+  			<% cf = @current_flight%>
     	<tr>      	
 			<td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= cf.dep_airport.code %>&nbsp----></td>
 	      <td><%= cf.arr_airport.code %>&nbsp</td>
@@ -14,6 +14,6 @@
 	      <td><%= cf.avail %> seats</td>
 	    </tr>
 
-	  		<% end %>
+	 
 	</table>
 </div>

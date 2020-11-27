@@ -5,7 +5,8 @@ class FlightsController < ApplicationController
 		@result_flights = Flight.where(dep_airport_id: "---")
 
 		if params.has_key?(:dep_time_yr) && params.has_key?(:dep_time_mon) && params.has_key?(:dep_time_day)
-			unless params[:dep_time_yr].blank? || params[:dep_time_mon].blank? || params[:dep_time_day].blank?
+			unless params[:dep_time_yr].blank? || params[:dep_time_mon].blank? || params[:dep_time_day].blank? || params[:passenger_n].blank?
+				@passenger_n = params[:passenger_n]
 				@selected_date = DateTime.civil(params[:dep_time_yr].to_i, params[:dep_time_mon].to_i, params[:dep_time_day].to_i)
 				@result_flights = Flight.where(dep_airport_id: params[:dep_airport_id], arr_airport_id: params[:arr_airport_id]).where(dep_time: 	@selected_date.all_day)
 				#('dep_time < ? AND dep_time >= ?', @selected_date.beginning_of_day, @selected_date.beginning_of_day,)
