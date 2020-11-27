@@ -1,0 +1,19 @@
+<div style="display: inline-block">
+	<table>
+  		<tr>
+   	 <th>Flight<br><br></th>
+   	 <th></th>
+  		</tr>
+  		<tr></tr>
+  			<% @current_flight.each do |cf| %>
+    	<tr>      	
+			<td>&nbsp&nbsp&nbsp&nbsp<%= cf.dep_airport.code %>&nbsp----></td>
+	      <td><%= cf.arr_airport.code %>&nbsp</td>
+	      <td>&nbsp&nbsp&nbsp<%= cf.dep_time %>&nbsp&nbsp</td>
+	      <td><%= cf.duration %> hours&nbsp&nbsp</td>
+	      <td><%= cf.avail %> seats</td>
+	    </tr>
+
+	  <% end %>
+	</table>
+</div>
