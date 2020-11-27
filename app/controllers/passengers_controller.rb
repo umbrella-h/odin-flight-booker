@@ -7,8 +7,8 @@ class PassengersController < ApplicationController
    	console
 	   params_nested = { user_passenger: { name: params[:name], email: params[:email]}, bookings_attributes: [{ flight_id: @selected_flight_id, passenger_n: params[:passenger_n] }]}
 	   unless params[:name].blank? || params[:email].blank? || params[:passenger_n].blank?
-   		@user_passenger = Passenger.create!(#name: params[:name], email: params[:email])
-   		params_nested[:user_passenger])
+   		@user_passenger = Passenger.create!(params_nested[:user_passenger])#name: params[:name], email: params[:email])
+   		
    	end
    	
 
