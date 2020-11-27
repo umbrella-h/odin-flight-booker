@@ -3,9 +3,15 @@ class PassengersController < ApplicationController
 
    def new
    	@passenger = Passenger.new
+   	@bookings = @passenger.bookings.build
+   	
    	@selected_flight_id = params[:selected_flight].to_i
-   	@passenger_n = params[:passenger_n].to_i
+   	@passenger_n = params[:passenger_n].to_i  	
    	@current_flight = Flight.find(@selected_flight_id)
+   	
+   	#@bookings.flight_id = @selected_flight_id
+   	#@bookings.passenger_n = @passenger_n  	
+   	
    	console
    end
 	
