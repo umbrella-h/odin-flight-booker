@@ -1,5 +1,7 @@
 <h1>Your Booking Information</h1>
 
+<p><%= flash[:notice]%></p>
+<br><br>
 <table>
   <tr>
     <th>Name&nbsp&nbsp&nbsp</th>
@@ -13,7 +15,7 @@
   </tr>    
 </table>
 
-<br><br><br><br>
+<br><br><br>
 
 <div style="display: inline-block">
 	<% p.bookings.each do |b| %>
