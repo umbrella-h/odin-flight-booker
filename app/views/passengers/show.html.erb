@@ -4,23 +4,26 @@
   <tr>
     <th>Name&nbsp&nbsp&nbsp</th>
     <th>Email&nbsp&nbsp&nbsp</th>
-    <th>Number of Passengers&nbsp&nbsp&nbsp</th>
+    
   </tr>
-  <% p = @passenger%>
-  <% p.bookings.each do |b| %>
+  <% p = @passenger%>  
   <tr>
       <td><br><%= p.name %></td>
-      <td><br>&nbsp&nbsp&nbsp<%= p.email %>&nbsp&nbsp&nbsp&nbsp</td>
-      <td><br>&nbsp&nbsp&nbsp<%= b.passenger_n %>&nbsp&nbsp</td>
+      <td><br>&nbsp&nbsp&nbsp<%= p.email %>&nbsp&nbsp&nbsp&nbsp</td>      
   </tr>    
 </table>
 
-<br><br>
+<br><br><br><br>
 
 <div style="display: inline-block">
+	<% p.bookings.each do |b| %>
 	<table>
   		<tr>
    	 <th>Flight<br><br></th>
+   	 <th></th>
+   	 <th></th>
+   	 <th></th>
+   	 <th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspNumber of Passengers&nbsp&nbsp&nbsp</th>
    	 <th></th>
   		</tr>
   		<tr></tr>
@@ -30,8 +33,10 @@
 	      <td><%= f.arr_airport.code %>&nbsp</td>
 	      <td>&nbsp&nbsp&nbsp<%= f.dep_time %>&nbsp&nbsp</td>
 	      <td><%= f.duration %> hours</td>
+	      <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= b.passenger_n %></td>
 	    </tr>
-		
-	<% end %>
 	</table>
+	<br><br>	
+	<% end %>
+
 </div>
